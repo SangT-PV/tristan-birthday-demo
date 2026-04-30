@@ -10,10 +10,15 @@
   --dim: #8888aa;
 }
 
-* {
+*:not([data-chat-widget="true"] *):not([data-chat-widget="true"]) {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+[data-chat-widget="true"],
+[data-chat-widget="true"] * {
+  box-sizing: border-box;
 }
 
 body {
@@ -102,6 +107,26 @@ body {
     --chat-panel-bg: rgba(31, 41, 55, 0.98);
     --background: #111827;
   }
+}
+
+/* Restore text spacing inside the widget — global `* { margin: 0; padding: 0 }`
+   above strips paragraph/list rhythm, making chat bubbles look like one wall
+   of text. Scope this override to the widget so the rest of the page is
+   untouched. */
+[data-chat-widget="true"] p {
+  margin: 0;
+  line-height: 1.55;
+}
+[data-chat-widget="true"] ul {
+  padding-left: 1.25em;
+  list-style: disc;
+}
+[data-chat-widget="true"] li {
+  margin: 0;
+  line-height: 1.5;
+}
+[data-chat-widget="true"] strong {
+  font-weight: 600;
 }
 
 /* Structural styles that don't conflict with adopter's theme — always apply. */

@@ -160,7 +160,7 @@ export default function ChatWidget() {
         <button
           onClick={() => setIsCollapsed(false)}
           aria-label="Open Site Assistant"
-          className="pointer-events-auto fixed bottom-6 right-6 flex items-center justify-center w-14 h-14 rounded-full text-white shadow-lg hover:scale-[1.08] transition-transform"
+          className="pointer-events-auto fixed bottom-6 right-6 z-[9999] flex items-center justify-center w-14 h-14 rounded-full text-white shadow-lg hover:scale-[1.08] transition-transform cursor-pointer"
           style={{
             background: 'var(--blue)',
             boxShadow: '0 4px 14px rgba(59, 130, 246, 0.4)',
