@@ -752,6 +752,7 @@ export default function Home() {
                 { quote: "Tristan is an all-rounder — but the best thing I appreciate is he never ignores any request, whether small or large. He doesn't distinguish between tasks or people. A wonderful person to work with." },
                 { quote: "Tristan always makes himself available to provide sagely wisdom wherever it is needed. I don't know where we would be without him." },
                 { quote: "Down to earth personality." },
+                { quote: "Smart, caring and fun to work with, always has your back." },
               ].map((t, i) => {
                 const colors = ["var(--indigo)", "var(--cyan)", "var(--orange)", "var(--magenta)"];
                 const c = colors[i % colors.length];
