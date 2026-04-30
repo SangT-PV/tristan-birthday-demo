@@ -1,5 +1,5 @@
 What's the best thing you can say about Tristan in 1 sentence?
-16 responses
+17 responses
 Tristan is the rare combination of sharp intellect, calm leadership, and just enough chaos to keep things interesting—basically the guy you want in charge and slightly worried about at the same time.
 He is highly talented person
 He is always willing to help and teach, works above and beyond to create solutions, and is a great advocate for the team.
@@ -16,3 +16,4 @@ Down to earth personality
 A person with great domain & technical knowledge, brining new ideas and improvements to the product and team. Always a motivation to turn our camera on :-)
 A smart trusted technical mind who thinks holistically and executes decisively🎂
 Smart, caring and fun to work with, always has your back.
+I hope you enjoy your special day and have a very happy birthday, Tristan! - Todd
