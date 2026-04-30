@@ -15,3 +15,5 @@ Tris You are Heimdall in our universe. Have a great year!!
 Down to earth personality
 A person with great domain & technical knowledge, brining new ideas and improvements to the product and team. Always a motivation to turn our camera on :-)
 A smart trusted technical mind who thinks holistically and executes decisively🎂
+
+
