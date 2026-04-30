@@ -492,51 +492,78 @@ export default function Home() {
               }}>14 initiatives — one wave</p>
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 12 }}>
                 {[
-                  { id: "CXMI-531", name: "AI-Assisted Jira Story Creation" },
-                  { id: "CXMI-532", name: "AI-Powered Customer Feedback & Idea Hub" },
-                  { id: "CXMI-533", name: "AI-Driven Team Health Dashboard" },
+                  { id: "CXMI-531", name: "AI-Assisted Jira Story Creation", demo: "https://sangt-demo.vercel.app/docs/demos/CXMI-531-Vision-Deck.html" },
+                  { id: "CXMI-532", name: "AI-Powered Customer Feedback & Idea Hub", demo: "https://sangt-demo.vercel.app/docs/demos/Panviva-Knowledge-Hub.html" },
+                  { id: "CXMI-533", name: "AI-Driven Team Health Dashboard", demo: "https://sangt-demo.vercel.app/docs/demos/CXMI-533%20Team%20Health%20Dashboard.html" },
                   { id: "CXMI-534", name: "AI Incident Post-Mortem Generator" },
-                  { id: "CXMI-535", name: "Claude Code Shared Learning System", tristan: true },
-                  { id: "CXMI-536", name: "SkillForge — Enterprise AI Skill Library" },
+                  { id: "CXMI-535", name: "Claude Code Shared Learning System", tristan: true, demo: "https://sangt-demo.vercel.app/docs/demos/Learning%20System.html" },
+                  { id: "CXMI-536", name: "SkillForge — Enterprise AI Skill Library", demo: "https://sangt-demo.vercel.app/docs/demos/SkillForge-Full-Walkthrough.html" },
                   { id: "CXMI-537", name: "AI-Powered Impact Analysis Tool" },
                   { id: "CXMI-538", name: "Internal AI Knowledge-Sharing Platform" },
                   { id: "CXMI-539", name: "Intelligent QA Assistant" },
                   { id: "CXMI-540", name: "Phoenix Deployment Integration" },
-                  { id: "CXMI-541", name: "SiteAssistant Bot" },
-                  { id: "CXMI-542", name: "AI Orchestrator Team", tristan: true },
+                  { id: "CXMI-541", name: "SiteAssistant Bot", demo: "https://sangt-demo.vercel.app/docs/demos/SiteAssistant.html" },
+                  { id: "CXMI-542", name: "AI Orchestrator Team", tristan: true, demo: "https://sangt-demo.vercel.app/docs/demos/CXMI-542-Orchestrator-Deck/CXMI-542-Orchestrator-Deck.html" },
                   { id: "CXMI-603", name: "PromptGraph — Prompt Optimizer" },
                   { id: "CXMI-604", name: "SuperSecurity — AI Command Safety Layer" },
-                ].map((item) => (
-                  <div key={item.id} style={{
+                ].map((item) => {
+                  const content = (
+                    <>
+                      {item.tristan && (
+                        <span style={{
+                          position: "absolute",
+                          top: 8, right: 10,
+                          fontFamily: "'Courier New', monospace",
+                          fontSize: 9,
+                          color: "var(--cyan)",
+                          letterSpacing: "0.1em",
+                          opacity: 0.9,
+                        }}>TRISTAN</span>
+                      )}
+                      {item.demo && !item.tristan && (
+                        <span style={{
+                          position: "absolute",
+                          top: 8, right: 10,
+                          fontFamily: "'Courier New', monospace",
+                          fontSize: 9,
+                          color: "#22c55e",
+                          letterSpacing: "0.1em",
+                          opacity: 0.95,
+                        }}>● DEMO</span>
+                      )}
+                      <span style={{
+                        fontFamily: "'Courier New', monospace",
+                        fontSize: 10,
+                        color: item.tristan ? "var(--cyan)" : "var(--indigo)",
+                        letterSpacing: "0.15em",
+                      }}>{item.id}</span>
+                      <span style={{ fontSize: 13, color: item.tristan ? "var(--text)" : "var(--dim)", lineHeight: 1.5 }}>
+                        {item.name}
+                        {item.demo && <span style={{ marginLeft: 6, color: "#22c55e", opacity: 0.85, fontSize: 11 }}>↗</span>}
+                      </span>
+                    </>
+                  );
+                  const baseStyle = {
                     background: item.tristan ? "rgba(108,99,255,0.08)" : "rgba(255,255,255,0.02)",
-                    border: item.tristan ? "1px solid rgba(108,99,255,0.5)" : "1px solid rgba(108,99,255,0.15)",
+                    border: item.tristan ? "1px solid rgba(108,99,255,0.5)" : item.demo ? "1px solid rgba(34,197,94,0.35)" : "1px solid rgba(108,99,255,0.15)",
                     borderRadius: 2,
                     padding: "14px 16px",
                     display: "flex",
-                    flexDirection: "column",
+                    flexDirection: "column" as const,
                     gap: 4,
-                    position: "relative",
-                  }}>
-                    {item.tristan && (
-                      <span style={{
-                        position: "absolute",
-                        top: 8, right: 10,
-                        fontFamily: "'Courier New', monospace",
-                        fontSize: 9,
-                        color: "var(--cyan)",
-                        letterSpacing: "0.1em",
-                        opacity: 0.9,
-                      }}>TRISTAN</span>
-                    )}
-                    <span style={{
-                      fontFamily: "'Courier New', monospace",
-                      fontSize: 10,
-                      color: item.tristan ? "var(--cyan)" : "var(--indigo)",
-                      letterSpacing: "0.15em",
-                    }}>{item.id}</span>
-                    <span style={{ fontSize: 13, color: item.tristan ? "var(--text)" : "var(--dim)", lineHeight: 1.5 }}>{item.name}</span>
-                  </div>
-                ))}
+                    position: "relative" as const,
+                  };
+                  if (item.demo) {
+                    return (
+                      <a key={item.id} href={item.demo} target="_blank" rel="noopener noreferrer" style={{ ...baseStyle, textDecoration: "none", cursor: "pointer", transition: "transform 0.15s ease, border-color 0.2s ease" }}
+                         onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.borderColor = "rgba(34,197,94,0.7)"; }}
+                         onMouseLeave={(e) => { e.currentTarget.style.transform = ""; e.currentTarget.style.borderColor = item.tristan ? "rgba(108,99,255,0.5)" : "rgba(34,197,94,0.35)"; }}>
+                        {content}
+                      </a>
+                    );
+                  }
+                  return <div key={item.id} style={baseStyle}>{content}</div>;
+                })}
               </div>
             </div>
 
